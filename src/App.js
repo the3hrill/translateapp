@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import ToggleButton from './ToggleButton';
+import Footer from './Footer';
 
 function App() {
   const [input, setInput] = useState('');
@@ -120,12 +121,13 @@ function App() {
               ))}
             </select>
           </div>
-          <input
+          <textarea
+            style={{ resize: 'none' }}
             type="text"
             className="inputText"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Enter text to translate"
+            placeholder="Type or Paste"
           />
         </div>
       </form>
@@ -148,6 +150,9 @@ function App() {
       </div>
       <div>
         <ToggleButton />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

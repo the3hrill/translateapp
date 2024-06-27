@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
 :root {
   --primary-color: #e52e71;
   --secondary-color: #ff8a00;
@@ -17,38 +21,38 @@ body {
 }
 
 .header {
-  font-family: Markazi Text;
+  font-family: Coiny;
   color: white;
-  font-size: 2em;
+  font-size: 2.5em;
   margin-top: 0;
-  padding-top: 1em;
 }
 
 .header p {
-  font-family: Markazi Text;
+  font-family: Coiny;
   font-size: 0.5em;
   color: white;
-  padding-top: 0.1em;
   padding-bottom: 1em;
 }
 
 .inputText {
-  font-family: Markazi Text;
+  font-family: 'Red Hat Display', sans-serif;
   border: #e52e71 2px solid;
   border-radius: 15px;
   font-size: medium;
-  height: 5em;
+  height: 3em;
   color: #e52e71;
 }
 
 .inputText::placeholder {
-  font-family: Markazi Text;
+  font-family: 'Red Hat Display', sans-serif;
   color: #e52e71;
   text-align: center;
+  padding-top: 0.8em;
+  font-size: medium;
 }
 
 .translatedText {
-  font-family: Markazi Text;
+  font-family: Coiny;
   color: white;
   height: auto;
   width: auto;
@@ -56,7 +60,7 @@ body {
 }
 
 .selectLanguage {
-  font-family: Markazi Text;
+  font-family: 'Red Hat Display', sans-serif;
   border: #e52e71 2px solid;
   border-radius: 15px;
   font-size: medium;
@@ -65,7 +69,7 @@ body {
 }
 
 .setFirstLanguage {
-  font-family: Markazi Text;
+  font-family: 'Red Hat Display', sans-serif;
   border: #e52e71 2px solid;
   border-radius: 15px;
   font-size: medium;
@@ -75,7 +79,7 @@ body {
 }
 
 .translateButton {
-  font-family: Markazi Text;
+  font-family: Coiny;
   background-color: #e52e71;
   color: white;
   border-radius: 15px;
@@ -90,13 +94,23 @@ body {
 }
 
 .theButton {
-  font-family: Markazi Text;
+  font-family: Coiny;
   background-color: #e52e71;
   color: white;
   border-radius: 15px;
   height: 2em;
   font-size: medium;
-  margin-top: 20vh;
+  margin-top: 10vh;
+}
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: Coiny;
+  color: white;
+  font-size: 0.5em;
+  padding-top: 5em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .DarkMode {
