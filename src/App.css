@@ -43,6 +43,10 @@ body {
   color: #e52e71;
 }
 
+.inputText:focus {
+  outline: #e52e71 2px solid;
+}
+
 .inputText::placeholder {
   font-family: 'Red Hat Display', sans-serif;
   color: #e52e71;
@@ -66,6 +70,8 @@ body {
   font-size: medium;
   height: 2em;
   color: #e52e71;
+  margin-top: 1em;
+  cursor: pointer;
 }
 
 .setFirstLanguage {
@@ -76,6 +82,7 @@ body {
   height: 2em;
   color: #e52e71;
   margin-bottom: 1em;
+  cursor: pointer;
 }
 
 .translateButton {
@@ -85,7 +92,12 @@ body {
   border-radius: 15px;
   height: 2em;
   font-size: medium;
-  margin-top: 1em;
+  margin-top: 0.5em;
+}
+
+.translateButton:hover {
+  cursor: pointer;
+  background-color: #ff8a00;
 }
 
 .App-logo {
@@ -102,6 +114,12 @@ body {
   font-size: medium;
   margin-top: 10vh;
 }
+
+.theButton:hover {
+  cursor: pointer;
+  background-color: #ff8a00;
+}
+
 .Footer {
   display: flex;
   justify-content: space-between;
@@ -111,6 +129,24 @@ body {
   padding-top: 5em;
   margin-left: 1em;
   margin-right: 1em;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }
 
 .DarkMode {
@@ -124,8 +160,16 @@ body {
   .translateButton {
     background-color: var(--tertiary-color);
   }
+  .translateButton:hover {
+    background-color: #1b1b2f;
+  }
+
   .theButton {
     background-color: var(--tertiary-color);
+  }
+
+  .theButton:hover {
+    background-color: #1b1b2f;
   }
 }
 

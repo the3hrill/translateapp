@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import ToggleButton from './ToggleButton';
 import Footer from './Footer';
+import { CSSTransition } from 'react-transition-group';
 
 function App() {
   const [input, setInput] = useState('');
-  const [translatedText, setTranslatedText] = useState('');
+  const [translatedText, setTranslatedText] = useState('. . .');
   const [targetLanguage, setTargetLanguage] = useState('es');
   const [languages, setLanguages] = useState([]);
   const [initialLanguage, setInitialLanguage] = useState('en');
+  const [showText, setShowText] = useState(false);
 
   useEffect(() => {
     if (input) {
@@ -95,6 +97,8 @@ function App() {
       const response = await fetch(url, options);
       const data = await response.json();
       setTranslatedText(data.data.translations.translatedText);
+      setShowText(false);
+      setTimeout(() => setShowText(true), 10);
     } catch (error) {
       console.error(error);
     }
@@ -131,7 +135,15 @@ function App() {
           />
         </div>
       </form>
-      <p className="translatedText">{translatedText}</p>
+      <CSSTransition
+        in={showText}
+        timeout={300}
+        classNames="fade"
+        unmountOnExit
+        onExited={() => setShowText(true)}
+      >
+        <p className="translatedText">{translatedText}</p>
+      </CSSTransition>
       <select
         className="selectLanguage"
         value={targetLanguage}
