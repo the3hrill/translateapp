@@ -3,6 +3,8 @@ import './App.css';
 import ToggleButton from './ToggleButton';
 import Footer from './Footer';
 import { CSSTransition } from 'react-transition-group';
+import Info from './Info';
+import { ReactComponent as Ibutton } from './Ibutton.svg';
 
 function App() {
   const [input, setInput] = useState('');
@@ -11,6 +13,11 @@ function App() {
   const [languages, setLanguages] = useState([]);
   const [initialLanguage, setInitialLanguage] = useState('en');
   const [showText, setShowText] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const toggleModal = () => {
+    setOpen(!open);
+  };
 
   useEffect(() => {
     if (input) {
@@ -107,6 +114,12 @@ function App() {
   return (
     <div className="App">
       <div className="header">
+        <div onClick={toggleModal}>
+          <button className="InfoButton">
+            <Ibutton />
+          </button>
+        </div>
+        <Info open={open} toggleModal={toggleModal} />
         <h1>Translate</h1>
         <p>By Will</p>
       </div>
