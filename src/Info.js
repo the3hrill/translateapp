@@ -2,6 +2,11 @@ import React from 'react';
 
 const Modal = ({ open, toggleModal }) => {
   if (!open) return null;
+  const closeModal = (e) => {
+    if (e.target.className === 'modal') {
+      toggleModal();
+    }
+  };
 
   return (
     <div className="modal">
@@ -12,7 +17,7 @@ const Modal = ({ open, toggleModal }) => {
         <p>To Translate: Just Choose Your Languages And Press Translate!!!</p>
         <p>
           Detect: Don't Worry If You Don't Know The Original Language The App
-          Will Get It For You!!
+          Will Figure It Out For You!!
         </p>
       </div>
     </div>

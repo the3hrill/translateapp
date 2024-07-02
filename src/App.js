@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { CSSTransition } from 'react-transition-group';
 import Info from './Info';
 import { ReactComponent as Ibutton } from './Ibutton.svg';
+import { PropagateLoader } from 'react-spinners';
 
 function App() {
   const [input, setInput] = useState('');
@@ -14,6 +15,7 @@ function App() {
   const [initialLanguage, setInitialLanguage] = useState('en');
   const [showText, setShowText] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const toggleModal = () => {
     setOpen(!open);
@@ -86,6 +88,7 @@ function App() {
   };
 
   const translate = async () => {
+    setIsLoading(true);
     const url = 'https://deep-translate1.p.rapidapi.com/language/translate/v2';
     const options = {
       method: 'POST',
@@ -108,6 +111,8 @@ function App() {
       setTimeout(() => setShowText(true), 10);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -121,7 +126,6 @@ function App() {
         </div>
         <Info open={open} toggleModal={toggleModal} />
         <h1>Translate</h1>
-        <p>By Will</p>
       </div>
       <form>
         <div>
@@ -155,7 +159,13 @@ function App() {
         unmountOnExit
         onExited={() => setShowText(true)}
       >
-        <p className="translatedText">{translatedText}</p>
+        {isLoading ? (
+          <p className="loader">
+            <PropagateLoader color="#ffffff" />
+          </p>
+        ) : (
+          <p className="translatedText">{translatedText}</p>
+        )}
       </CSSTransition>
       <select
         className="selectLanguage"

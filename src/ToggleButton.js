@@ -9,7 +9,7 @@ function ToggleButton() {
 
   return (
     <button onClick={myfunction} className="theButton">
-      Mode Change
+      Mood Change
     </button>
   );
 }
